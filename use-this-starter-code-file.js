@@ -91,8 +91,47 @@ class Vehicle {
 
 //Code the Car subclass here
 
+let v = new Vehicle("Mercury", "Sedan", "1965", "color", "mileage");
+console.log(v.make)
 
+class Car extends Vehicle{
+	constructor(make, model, year, color, mileage){
+		super(make, model, year, color, mileage)
+		//car needs maximumPassengers, passenger, numberOfWheels, maximumSpeed, fuel and schedule Service
 
+		this.maximumPassenger =5;
+		this.passenger =0;
+		this.numberOfWheels =4;
+		this.maximumSpeed=160;
+		this.fuel=10;
+		this.scheduleService=false;
+	}
+loadpassenger(number){
+		if ((this.passenger + number)<=this.maximumPassenger){
+			this.passenger+=number
+			console.log("There are now", this.passenger, "in the vehicle.")
+		}
+		else{
+			console.log("You cannot load", number, "passengers. There is a maximum of", this.maximumPassenger, "passengers. There are currently", this.passenger, "in the vehicle")
+			//This is the error message for the loading passengers, it has to match less than or equal to the maximum passenger
+		}
+	}
+	start(){
+		if (this.fuel>0){
+			this.started=true;
+		// 	console.log(this.started)
+		}
+
+	}
+	scheduleServices(){
+		//scheduleService is a property so this is scheduleService(s)
+		//made this.mileage a number for comparison
+		if (Number(this.mileage)>30000){
+			this.scheduleService = true;
+			console.log("Time for maintenance")
+		}
+	}
+}
 
 
 let v = new Vehicle("Mercury", "Sedan", "1965", "color", "mileage");
@@ -100,6 +139,12 @@ console.log(v.make)
 
 
 //create new instances of the Car class here
+let u = new Car("Mercury", "Sedan", "1800", "color", "mileage");
+// console.log(u.year)
+u.loadpassenger(4)
+u.loadpassenger(5)
+// u.start()
+// u.scheduleServices()
 
 
 
@@ -107,6 +152,19 @@ console.log(v.make)
 
 
 
-//Bonus
 
 //Code the Truck subclass here
+class Truck extends Vehicle{
+	constructor(make, model, year, color, mileage){
+		super(make, model, year, color, mileage)
+	}
+}
+
+let tru = new Truck("Truck", "Truck", "1996", "White", 15000)
+console.log(tru.year)
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
